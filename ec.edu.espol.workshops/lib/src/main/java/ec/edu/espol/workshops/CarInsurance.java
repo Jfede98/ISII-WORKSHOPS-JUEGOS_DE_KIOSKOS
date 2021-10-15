@@ -9,7 +9,63 @@ public class CarInsurance {
 	
 	private int customerAge;
 	private char customerSex;
-	private boolean customerMarried;
+	private boolean isCustomerMarried;
 	private String customerID;
+	
+	public CarInsurance(int customerAge, char customerSex, boolean isCustomerMarried, String customerID) {
+		if ((customerAge >= 80) && (customerAge < 18)) {
+			throw new IllegalArgumentException("Age not valid");
+		}
+		this.customerAge = customerAge;
+		if ((Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F') ) {
+			throw new IllegalArgumentException("Sex not valid");
+		}
+		this.customerSex = customerSex;
+		this.isCustomerMarried = isCustomerMarried;
+		this.customerID = customerID;		
+	}
+
+	public int getCustomerAge() {
+		return customerAge;
+	}
+	public void setCustomerAge(int customerAge) {
+		this.customerAge = customerAge;
+	}
+	public char getCustomerSex() {
+		return customerSex;
+	}
+	public void setCustomerSex(char customerSex) {
+		this.customerSex = customerSex;
+	}
+	public boolean isCustomerMarried() {
+		return isCustomerMarried;
+	}
+	public void setisCustomerMarried(boolean isCustomerMarried) {
+		this.isCustomerMarried = isCustomerMarried;
+	}
+	public String getCustomerID() {
+		return customerID;
+	}
+	public void setCustomerID(String customerID) {
+		this.customerID = customerID;
+	}
+	
+	public int calculateInsurance() {
+		int insurance = BASE_PREMIUM;
+		
+		if ((Character.toUpperCase(customerSex) == 'M') && (isCustomerMarried == false) && (customerAge <= 25)) {
+			insurance += CASE_A;
+		}
+		else if ((Character.toUpperCase(customerSex) == 'F') || (isCustomerMarried == true)) {
+			insurance -= CASE_B;
+		}
+		else if ((customerAge >= 45) && (customerAge <= 65)) {
+			insurance -= CASE_C;
+		}
+		
+		return insurance;
+	}
+	
+	
 	
 }
