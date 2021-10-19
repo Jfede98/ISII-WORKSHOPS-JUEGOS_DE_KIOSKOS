@@ -1,7 +1,13 @@
 package ec.edu.espol.workshops;
 
+/** 
+ *
+ *
+ * @author Julian & Gabriela 
+ */
+
 public class CarInsurance {
-	int BASE_PREMIUM = 500;
+	static int BASE_PREMIUM = 500;
 	int MAX_AGE = 80;
 	int CASE_A = 1500; /*Add male and not married and under 25*/
 	int CASE_B = 200;  /*Subtract female or married*/
@@ -9,9 +15,9 @@ public class CarInsurance {
 	
 	private int customerAge;
 	private char customerSex;
-	private boolean isCustomerMarried;
+	private boolean marriedStatus;
 	
-	public CarInsurance(int customerAge, char customerSex, boolean isCustomerMarried) {
+	public CarInsurance(int customerAge, char customerSex, boolean marriedStatus) {
 		
 		if ((customerAge >= 80) || (customerAge < 18)) {
 			throw new IllegalArgumentException("Age not valid");
@@ -25,7 +31,7 @@ public class CarInsurance {
 		
 		this.customerSex = customerSex;
 		
-		this.isCustomerMarried = isCustomerMarried;		
+		this.marriedStatus = marriedStatus;		
 	}
 
 	public int getCustomerAge() {
@@ -44,21 +50,21 @@ public class CarInsurance {
 		this.customerSex = customerSex;
 	}
 	
-	public boolean isCustomerMarried() {
-		return isCustomerMarried;
+	public boolean isMarriedStatus() {
+		return marriedStatus;
 	}
-	
-	public void setisCustomerMarried(boolean isCustomerMarried) {
-		this.isCustomerMarried = isCustomerMarried;
+
+	public void setMarriedStatus(boolean marriedStatus) {
+		this.marriedStatus = marriedStatus;
 	}
-	
+
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		
-		if ((Character.toUpperCase(customerSex) == 'M') && (isCustomerMarried == false) && (customerAge <= 25)) {
+		if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25)) {
 			insurance += CASE_A;
 		}
-		else if ((Character.toUpperCase(customerSex) == 'F') || (isCustomerMarried == true)) {
+		else if ((Character.toUpperCase(customerSex) == 'F') || (marriedStatus == true)) {
 			insurance -= CASE_B;
 		}
 		else if ((customerAge >= 45) && (customerAge <= 65)) {
