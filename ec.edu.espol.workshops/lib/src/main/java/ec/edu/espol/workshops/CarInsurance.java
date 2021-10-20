@@ -2,7 +2,7 @@ package ec.edu.espol.workshops;
 
 public class CarInsurance {
 	int BASE_PREMIUM = 500;
-	int MAX_AGE = 80;
+	int MAX_AGE = 80;  
 	int MIN_AGE = 18;
 	int CASE_A = 1500; /*Add male and not married and under 25*/
 	int CASE_B = 200;  /*Subtract female or married*/
