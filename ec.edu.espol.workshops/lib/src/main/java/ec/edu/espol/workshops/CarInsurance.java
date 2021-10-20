@@ -1,5 +1,10 @@
 package ec.edu.espol.workshops;
 
+/**
+ * Represents a CarInsurance Deal
+ * Calculates the insurance cost with the customer's data.
+ */
+
 public class CarInsurance {
 	int BASE_PREMIUM = 500;
 	int MAX_AGE = 80;
@@ -11,6 +16,9 @@ public class CarInsurance {
 	private char customerSex;
 	private boolean isCustomerMarried;
 	
+	/*
+	 * Creates a new CarInsurance base on the customer's age, sex and marital status.
+	 * */
 	public CarInsurance(int customerAge, char customerSex, boolean isCustomerMarried) {
 		
 		if ((customerAge >= 80) || (customerAge < 18)) {
@@ -52,6 +60,9 @@ public class CarInsurance {
 		this.isCustomerMarried = isCustomerMarried;
 	}
 	
+	/*
+	 * Calculates insurance based on different scenarios.
+	 * */
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		

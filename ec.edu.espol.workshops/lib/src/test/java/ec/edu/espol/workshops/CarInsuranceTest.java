@@ -4,8 +4,12 @@ import org.junit.Assert;
 
 import org.junit.Test;
 
+/*
+ *Class for testing CarInsurance class. 
+ * */
+
 public class CarInsuranceTest {
-	
+
 	 @Test
 	 public void calculateInsuranceCaseATest() {
 		 CarInsurance carInsuranceCaseA = new CarInsurance(21, 'M' , false);
