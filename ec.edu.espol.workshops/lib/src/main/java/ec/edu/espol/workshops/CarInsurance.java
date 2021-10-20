@@ -68,11 +68,9 @@ public class CarInsurance {
 		
 		if ((Character.toUpperCase(customerSex) == 'M') && (isCustomerMarried == false) && (customerAge <= 25)) {
 			insurance += CASE_A;
-		}
-		else if ((Character.toUpperCase(customerSex) == 'F') || (isCustomerMarried == true)) {
+		} else if ((Character.toUpperCase(customerSex) == 'F') || (isCustomerMarried == true)) {
 			insurance -= CASE_B;
-		}
-		else if ((customerAge >= 45) && (customerAge <= 65)) {
+		} else if ((customerAge >= 45) && (customerAge <= 65)) {
 			insurance -= CASE_C;
 		}
 		
