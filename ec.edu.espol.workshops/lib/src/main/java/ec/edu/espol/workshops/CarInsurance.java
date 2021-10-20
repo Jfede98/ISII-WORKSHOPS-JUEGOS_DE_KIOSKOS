@@ -16,9 +16,10 @@ public class CarInsurance {
 	private char customerSex;
 	private boolean isCustomerMarried;
 	
-	/*
+	/**
 	 * Creates a new CarInsurance base on the customer's age, sex and marital status.
-	 * */
+	 */
+	
 	public CarInsurance(int customerAge, char customerSex, boolean isCustomerMarried) {
 		
 		if ((customerAge >= 80) || (customerAge < 18)) {
@@ -27,7 +28,7 @@ public class CarInsurance {
 		
 		this.customerAge = customerAge;
 		
-		if ((Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F') ) {
+		if((Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F')  ) {
 			throw new IllegalArgumentException("Sex not valid");
 		}
 		
@@ -60,15 +61,16 @@ public class CarInsurance {
 		this.isCustomerMarried = isCustomerMarried;
 	}
 	
-	/*
+	/**
 	 * Calculates insurance based on different scenarios.
-	 * */
+	 */
+	
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		
 		if ((Character.toUpperCase(customerSex) == 'M') && (isCustomerMarried == false) && (customerAge <= 25)) {
 			insurance += CASE_A;
-		} else if ((Character.toUpperCase(customerSex) == 'F') || (isCustomerMarried == true)) {
+		} else if ((Character.toUpperCase(customerSex) == 'F') || (isCustomerMarried ==  true)) {
 			insurance -= CASE_B;
 		} else if ((customerAge >= 45) && (customerAge <= 65)) {
 			insurance -= CASE_C;

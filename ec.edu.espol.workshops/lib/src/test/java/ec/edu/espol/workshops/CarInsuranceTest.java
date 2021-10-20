@@ -1,12 +1,11 @@
 package ec.edu.espol.workshops;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
-/*
- *Class for testing CarInsurance class. 
- * */
+/**
+ * Class for testing CarInsurance class.
+ */
 
 public class CarInsuranceTest {
 
@@ -35,7 +34,7 @@ public class CarInsuranceTest {
 	 }
 	 
 	 @Test
-	 public void carInsuranceAgeException(){
+	 public void carInsuranceAgeException() {
 		 
 		 Assert.assertThrows(IllegalArgumentException.class, () -> {
 			 
