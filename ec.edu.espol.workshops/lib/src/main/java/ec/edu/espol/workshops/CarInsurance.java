@@ -7,8 +7,10 @@ package ec.edu.espol.workshops;
  */
 
 public class CarInsurance {
+	
 	static int BASE_PREMIUM = 500;
 	int MAX_AGE = 80;
+	int MIN_AGE = 18;
 	int CASE_A = 1500; /*Add male and not married and under 25*/
 	int CASE_B = 200;  /*Subtract female or married*/
 	int CASE_C = 100;  /*Subtract between 45 and 65*/
@@ -19,7 +21,7 @@ public class CarInsurance {
 	
 	public CarInsurance(int customerAge, char customerSex, boolean marriedStatus) {
 		
-		if ((customerAge >= 80) || (customerAge < 18)) {
+		if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE)) {
 			throw new IllegalArgumentException("Age not valid");
 		}
 		
