@@ -1,8 +1,9 @@
 package ec.edu.espol.workshops;
 
-/** 
- *
- *
+
+/**
+ * Represents a CarInsurance Deal
+ * Calculates the insurance cost with the customer's data.
  * @author Julian & Gabriela 
  */
 
@@ -19,15 +20,20 @@ public class CarInsurance {
 	private char customerSex;
 	private boolean marriedStatus;
 	
+
+	/**
+	 * Creates a new CarInsurance base on the customer's age, sex and marital status.
+	 */
+	
 	public CarInsurance(int customerAge, char customerSex, boolean marriedStatus) {
-		
+
 		if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE)) {
 			throw new IllegalArgumentException("Age not valid");
 		}
 		
 		this.customerAge = customerAge;
 		
-		if ((Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F') ) {
+		if((Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F')  ) {
 			throw new IllegalArgumentException("Sex not valid");
 		}
 		
@@ -60,22 +66,23 @@ public class CarInsurance {
 		this.marriedStatus = marriedStatus;
 	}
 
+	/**
+	 * Calculates insurance based on different scenarios.
+	 */
+	
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		
 		if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25)) {
 			insurance += CASE_A;
-		}
-		else if ((Character.toUpperCase(customerSex) == 'F') || (marriedStatus == true)) {
+
+		}else if ((Character.toUpperCase(customerSex) == 'F') || (marriedStatus == true)) {
 			insurance -= CASE_B;
-		}
-		else if ((customerAge >= 45) && (customerAge <= 65)) {
+		} else if ((customerAge >= 45) && (customerAge <= 65)) {
 			insurance -= CASE_C;
 		}
 		
 		return insurance;
 	}
-	
-	
 	
 }
