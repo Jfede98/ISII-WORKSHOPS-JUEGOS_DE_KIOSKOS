@@ -33,7 +33,7 @@ public class EmpiricalTest {
 		 System.out.println(insurance5);
 		 System.out.println("\n");
 		 
-		 CarInsurance carInsuranceCase6 = new CarInsurance(16, 'F' , false, true);
+		 CarInsurance carInsuranceCase6 = new CarInsurance(57, 'M' , true, true);
 		 int insurance6 = carInsuranceCase6.calculateInsurance();
 		 System.out.println("Sixth Test subject");
 		 System.out.println(insurance6);
