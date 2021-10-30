@@ -18,7 +18,7 @@ public class CarInsuranceTest {
 	
 	 @Test
 	 public void calculateInsuranceCaseATest() {		 
-		 CarInsurance carInsuranceCaseA = new CarInsurance(21, 'M' , false);
+		 CarInsurance carInsuranceCaseA = new CarInsurance(21, 'M' , false, true);
 		 int insurance = carInsuranceCaseA.calculateInsurance();
 		 int expectedInsurance = 2000;
 		 Assert.assertEquals(insurance, expectedInsurance, 0);
@@ -30,7 +30,7 @@ public class CarInsuranceTest {
 	 
 	 @Test
 	 public void calculateInsuranceCaseBTest() {
-		 CarInsurance carInsuranceCaseB = new CarInsurance(21, 'F' , false);
+		 CarInsurance carInsuranceCaseB = new CarInsurance(21, 'F' , false, true);
 		 int insurance = carInsuranceCaseB.calculateInsurance();
 		 int expectedInsurance = 300;
 		 Assert.assertEquals(insurance, expectedInsurance, 0);
@@ -42,24 +42,22 @@ public class CarInsuranceTest {
 	 
 	 @Test
 	 public void calculateInsuranceCaseCTest() {
-		 CarInsurance carInsuranceCaseC = new CarInsurance(50, 'M' , false);
+		 CarInsurance carInsuranceCaseC = new CarInsurance(50, 'M' , false, true);
 		 int insurance = carInsuranceCaseC.calculateInsurance();
 		 int expectedInsurance = 400;
 		 Assert.assertEquals(insurance, expectedInsurance, 0);
 	 }
 	 
 	 /**
-	  * Testing IllegalArgumentException: Customer older than 80 years old
+	  * Testing Case data is invalid: Customer older than 80 years old
 	  */
 	 
 	 @Test
 	 public void carInsuranceAgeException(){
-		 Assert.assertThrows(IllegalArgumentException.class, () -> {
-			 
-			new CarInsurance(85, 'F', true);
-			 
-		 });
-		 
+		 CarInsurance carInsuranceCaseD = new CarInsurance(85, 'F', true, true);
+		 int insurance = carInsuranceCaseD.calculateInsurance();
+		 int expectedInsurance = -1;
+		 Assert.assertEquals(insurance, expectedInsurance, 0);
 	 }
 	
 }

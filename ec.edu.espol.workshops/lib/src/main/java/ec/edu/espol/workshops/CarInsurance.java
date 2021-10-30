@@ -19,17 +19,14 @@ public class CarInsurance {
 	private int customerAge;
 	private char customerSex;
 	private boolean marriedStatus;
+	private boolean haveLicense;
 	
 
 	/**
-	 * Creates a new CarInsurance base on the customer's age, sex and marital status.
+	 * Creates a new CarInsurance base on the customer's age, sex, marital status and if the customer has a license.
 	 */
 	
-	public CarInsurance(int customerAge, char customerSex, boolean marriedStatus) {
-
-		if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE)) {
-			throw new IllegalArgumentException("Age not valid");
-		}
+	public CarInsurance(int customerAge, char customerSex, boolean marriedStatus, boolean haveLicense) {
 		
 		this.customerAge = customerAge;
 		
@@ -39,7 +36,9 @@ public class CarInsurance {
 		
 		this.customerSex = customerSex;
 		
-		this.marriedStatus = marriedStatus;		
+		this.marriedStatus = marriedStatus;
+		
+		this.haveLicense= haveLicense;
 	}
 
 	public int getCustomerAge() {
@@ -66,6 +65,14 @@ public class CarInsurance {
 		this.marriedStatus = marriedStatus;
 	}
 
+	public boolean isHaveLicense() {
+		return haveLicense;
+	}
+
+	public void setHaveLicense(boolean haveLicense) {
+		this.haveLicense = haveLicense;
+	}
+
 	/**
 	 * Calculates insurance based on different scenarios.
 	 */
@@ -73,14 +80,19 @@ public class CarInsurance {
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		
-		if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25)) {
+		if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25) && (haveLicense=true)) {
 			insurance += CASE_A;
 
-		}else if ((Character.toUpperCase(customerSex) == 'F') || (marriedStatus == true)) {
+		}else if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE) || (haveLicense == false)) {
+			insurance = -1;
+			
+		}else if ((Character.toUpperCase(customerSex) == 'F') && (haveLicense == true) || (marriedStatus == true) && (haveLicense == true)) {
 			insurance -= CASE_B;
-		} else if ((customerAge >= 45) && (customerAge <= 65)) {
+			
+		} else if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
 			insurance -= CASE_C;
-		}
+			
+		} 
 		
 		return insurance;
 	}
