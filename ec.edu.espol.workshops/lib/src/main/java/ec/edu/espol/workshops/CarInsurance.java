@@ -86,13 +86,17 @@ public class CarInsurance {
 		}else if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE) || (haveLicense == false)) {
 			insurance = -1;
 			
+		}else if ((((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true)) && (Character.toUpperCase(customerSex) == 'F')) ||
+				(((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true)) && (marriedStatus == true))){
+			insurance -= (CASE_C + CASE_B);
+			
 		}else if ((Character.toUpperCase(customerSex) == 'F') && (haveLicense == true) || (marriedStatus == true) && (haveLicense == true)) {
 			insurance -= CASE_B;
 			
-		} else if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
+		}else if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
 			insurance -= CASE_C;
 			
-		} 
+		}
 		
 		return insurance;
 	}
