@@ -25,6 +25,9 @@ public class CarInsurance {
 	/**
 	 * Creates a new CarInsurance base on the customer's age, sex, marital status and if the customer has a license.
 	 */
+	public CarInsurance() {
+		
+	}
 	
 	public CarInsurance(int customerAge, char customerSex, boolean marriedStatus, boolean haveLicense) {
 		
