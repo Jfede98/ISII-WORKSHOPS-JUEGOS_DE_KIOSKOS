@@ -83,19 +83,27 @@ public class CarInsurance {
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		
-		if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25) && (haveLicense=true)) {
-			insurance += CASE_A;
-
-		}else if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE) || (haveLicense == false)) {
+		if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE) || (haveLicense == false)) {
 			insurance = -1;
 			
-		}else if ((Character.toUpperCase(customerSex) == 'F') && (haveLicense == true) || (marriedStatus == true) && (haveLicense == true)) {
-			insurance -= CASE_B;
+		}
+		else {
 			
-		} else if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
-			insurance -= CASE_C;
+			if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25) && (haveLicense=true)) {
+				insurance += CASE_A;
+
+			}
 			
-		} 
+			if ((Character.toUpperCase(customerSex) == 'F') && (haveLicense == true) || (marriedStatus == true) && (haveLicense == true)) {
+				insurance -= CASE_B;
+				
+			}
+			
+			if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
+				insurance -= CASE_C;
+				
+			} 
+		}
 		
 		return insurance;
 	}
