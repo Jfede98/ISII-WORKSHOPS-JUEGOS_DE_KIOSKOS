@@ -36,9 +36,9 @@ public class SystemTest {
 		int insurance8 = testCase8.calculateInsurance();
 		System.out.println("Test case: TC8\nResult: " + insurance8 + "\n");
 		
-		/*CarInsurance testCase9 = new CarInsurance(20, 'O' , false, true);
+		CarInsurance testCase9 = new CarInsurance(20, 'O' , false, true);
 		int insurance9 = testCase9.calculateInsurance();
-		System.out.println("Test case: TC9\nResult: " + insurance9 + "\n");*/
+		System.out.println("Test case: TC9\nResult: " + insurance9 + "\n");
 		
 		CarInsurance testCase10 = new CarInsurance(20, 'M' , false, false);
 		int insurance10 = testCase10.calculateInsurance();

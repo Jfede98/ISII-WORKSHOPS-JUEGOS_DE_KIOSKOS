@@ -30,10 +30,6 @@ public class CarInsurance {
 		
 		this.customerAge = customerAge;
 		
-		if((Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F')  ) {
-			throw new IllegalArgumentException("Sex not valid");
-		}
-		
 		this.customerSex = customerSex;
 		
 		this.marriedStatus = marriedStatus;
@@ -80,22 +76,26 @@ public class CarInsurance {
 	public int calculateInsurance() {
 		int insurance = BASE_PREMIUM;
 		
-		if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25) && (haveLicense=true)) {
-			insurance += CASE_A;
-
-		}else if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE) || (haveLicense == false)) {
+		if ((customerAge >= MAX_AGE) || (customerAge < MIN_AGE) || (haveLicense == false) || (Character.toUpperCase(customerSex) != 'M') && (Character.toUpperCase(customerSex) != 'F')) {
 			insurance = -1;
 			
-		}else if ((((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true)) && (Character.toUpperCase(customerSex) == 'F')) ||
-				(((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true)) && (marriedStatus == true))){
-			insurance -= (CASE_C + CASE_B);
+		}
+		else {
 			
-		}else if ((Character.toUpperCase(customerSex) == 'F') && (haveLicense == true) || (marriedStatus == true) && (haveLicense == true)) {
-			insurance -= CASE_B;
+			if ((Character.toUpperCase(customerSex) == 'M') && (marriedStatus == false) && (customerAge <= 25) && (haveLicense=true)) {
+				insurance += CASE_A;
+
+			}
 			
-		}else if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
-			insurance -= CASE_C;
+			if ((Character.toUpperCase(customerSex) == 'F') && (haveLicense == true) || (marriedStatus == true) && (haveLicense == true)) {
+				insurance -= CASE_B;
+				
+			}
 			
+			if (((customerAge >= 45) && (haveLicense == true)) && ((customerAge <= 65) && (haveLicense == true))) {
+				insurance -= CASE_C;
+				
+			} 
 		}
 		
 		return insurance;
