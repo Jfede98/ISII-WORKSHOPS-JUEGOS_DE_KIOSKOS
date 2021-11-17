@@ -1,6 +1,6 @@
 package ec.edu.espol.workshops;
 
-public class SystemTest {
+public class SystemTestA {
 
 	public static void main(String[] args) {
 		
