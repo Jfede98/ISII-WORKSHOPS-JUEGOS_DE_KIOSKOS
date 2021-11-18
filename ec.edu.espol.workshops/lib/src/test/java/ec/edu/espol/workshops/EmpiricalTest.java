@@ -3,7 +3,7 @@ package ec.edu.espol.workshops;
 public class EmpiricalTest {
 	public static void main(String[] args)
     {
-		 CarInsurance carInsuranceCase1 = new CarInsurance(35, 'F' , false, true);
+		 /*CarInsurance carInsuranceCase1 = new CarInsurance(35, 'F' , false, true);
 		 int insurance1 = carInsuranceCase1.calculateInsurance();
 		 System.out.println("First Test subject");
 		 System.out.println(insurance1);
@@ -37,7 +37,7 @@ public class EmpiricalTest {
 		 int insurance6 = carInsuranceCase6.calculateInsurance();
 		 System.out.println("Sixth Test subject");
 		 System.out.println(insurance6);
-		 System.out.println("\n");
+		 System.out.println("\n");*/
         
     }
 }

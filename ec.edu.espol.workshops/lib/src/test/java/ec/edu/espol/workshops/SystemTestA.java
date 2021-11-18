@@ -4,7 +4,7 @@ public class SystemTestA {
 
 	public static void main(String[] args) {
 		
-		CarInsurance testCase1 = new CarInsurance(20, 'M' , false, true);
+		/*CarInsurance testCase1 = new CarInsurance(20, 'M' , false, true);
 		int insurance1 = testCase1.calculateInsurance();
 		System.out.println("Test case: TC1\nResult: " + insurance1 + "\n");
 		
@@ -42,7 +42,7 @@ public class SystemTestA {
 		
 		CarInsurance testCase10 = new CarInsurance(20, 'M' , false, false);
 		int insurance10 = testCase10.calculateInsurance();
-		System.out.println("Test case: TC10\nResult: " + insurance10 + "\n");
+		System.out.println("Test case: TC10\nResult: " + insurance10 + "\n");*/
 		
 
 
