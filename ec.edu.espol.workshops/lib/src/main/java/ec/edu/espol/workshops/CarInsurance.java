@@ -41,37 +41,7 @@ public class CarInsurance {
 		this.haveLicense= haveLicense;
 	}
 
-	public int getCustomerAge() {
-		return customerAge;
-	}
-	
-	public void setCustomerAge(int customerAge) {
-		this.customerAge = customerAge;
-	}
-	
-	public char getCustomerSex() {
-		return customerSex;
-	}
-	
-	public void setCustomerSex(char customerSex) {
-		this.customerSex = customerSex;
-	}
-	
-	public boolean isMarriedStatus() {
-		return marriedStatus;
-	}
 
-	public void setMarriedStatus(boolean marriedStatus) {
-		this.marriedStatus = marriedStatus;
-	}
-
-	public boolean isHaveLicense() {
-		return haveLicense;
-	}
-
-	public void setHaveLicense(boolean haveLicense) {
-		this.haveLicense = haveLicense;
-	}
 
 	/**
 	 * Calculates insurance based on different scenarios.
