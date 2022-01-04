@@ -52,5 +52,16 @@ public class StatementCoverageTest {
 		 int expectedInsurance = 400;
 		 Assert.assertEquals(insurance, expectedInsurance, 0);
 	 }
-
+	
+	@Test
+	 public void testCase19() {
+		Throwable exception = Assert.assertThrows(IllegalArgumentException.class, () -> {new CarInsurance(50, 'G' , false, true); });
+		 
+		 String message = exception.getMessage();
+		 String expectedMessage = "Sex not valid";
+		 
+		 Assert.assertTrue(message.contains(expectedMessage));
+		 	 
+	 }
+	
 }
