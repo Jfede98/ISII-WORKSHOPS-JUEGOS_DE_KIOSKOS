@@ -15,7 +15,7 @@ public class CarInsurance {
 	int CASE_A = 1500; /*Add male and not married and under 25*/
 	int CASE_B = 200;  /*Subtract female or married*/
 	int CASE_C = 100;  /*Subtract between 45 and 65*/
-	int CASE_D = 50;   /*Subtract between 30 and 60, or, married*/
+	int CASE_D = 100;   /*Subtract between 30 and 60, and, married*/
 	int CASE_E = 50;   /*Subtract single female 60 and older*/
 	
 	private int customerAge;
@@ -101,15 +101,11 @@ public class CarInsurance {
 				
 			}
 			
-			if((customerAge>= 30) && (customerAge < 60)) {
+			if(((customerAge> 30) && (customerAge < 60)) && (marriedStatus == true)) {
 				insurance -= CASE_D;
 			}
 			
-			if(marriedStatus ==  true) {
-				insurance -=  CASE_D;
-			}
-			
-			if((Character.toUpperCase(customerSex) == 'F') && (marriedStatus == false) && (customerAge >=60)) {
+			if((Character.toUpperCase(customerSex) == 'F') && (marriedStatus == false) && (customerAge >60)) {
 				insurance -= CASE_E;
 			}
 		}
